@@ -39,10 +39,10 @@
     <header>
         <ul class="Nav-Meny">
             <li><a id="signOut" href="./index.html">Logg ut</a></li>
-            <li><a href="./profilePage.html?Veronica">Veronica</a></li>
-            <li><a href="./profilePage.html?Dag">Dag</a></li>
-            <li><a href="./profilePage.html?Kaia">Kaia</a></li>
-            <li><a href="./profilePage.html?Teo">Teo</a></li>
+            <li><a href="./profilePage.html?user=Veronica">Veronica</a></li>
+            <li><a href="./profilePage.html?user=Dag">Dag</a></li>
+            <li><a href="./profilePage.html?user=Kaia">Kaia</a></li>
+            <li><a href="./profilePage.html?user=Teo">Teo</a></li>
         </ul>
     </header>
 
@@ -56,15 +56,14 @@
     </div>
 
     <div class="infoText">
-        <div class="infoTextDiv"><p>Du har</p>
+        <div class="infoTextDiv">
             <p id="antallGjeremaal">XX</p>
-            <p>fullførte gjøremål🎉</p>
+            <p>fullførte gjøremål</p>
         </div>
 
         <div class="infoTextDiv">
-            <p>Du har</p>
             <p id="antallPoeng">XX</p>
-            <p>poeng🎉</p>
+            <p>poeng</p>
         </div>
     </div>
 
@@ -73,6 +72,7 @@
     <div id="chart_div"></div>
 
     <script type="module" src="./landingPage.js"></script>
+    <script type="module" src="charts.js"></script>
     <script type="module" src="./dbConnect.js"></script>
     <script src="loader.js"></script>
 </body>

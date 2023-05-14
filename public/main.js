@@ -1,9 +1,25 @@
+const users = document.getElementsByClassName("user");
+
+let userID;
+
+const userPressed = e => {
+  userID = e.target.id;
+  console.log(userID);  // Log the id of the clicked element to the console
+  WhoLogIn(userID);
+  window.location = "./landingPage.html"
+}
+
+for (let user of users) {
+  user.addEventListener("click", userPressed);
+}
+
+
 function WhoLogIn(clicked_id) {
   const d = new Date();
   d.setTime(d.getTime() + (31*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
   document.cookie = 'UserLoggedIn='+ clicked_id +';' + expires + ";path=/";
-}  
+}
 
 function getCookieValue(cookieName) {
   // Split the document.cookie string into an array of individual cookie strings

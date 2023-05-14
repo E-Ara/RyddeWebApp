@@ -1,9 +1,9 @@
 import { cookieValue } from "./main.js";
 import { db } from "./dbConnect.js";
 
-/* document.getElementById("signOut").addEventListener("click", () => {
+document.getElementById("signOut").addEventListener("click", () => {
     document.cookie = "UserLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}) */
+})
 
 window.onload = function() {
     document.getElementById("navnDemo").innerHTML = cookieValue;

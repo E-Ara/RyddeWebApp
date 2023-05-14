@@ -1,4 +1,4 @@
-import { getCurrentPoints } from "./tasks.js";
+import { getCurrentPoints } from "./tasks.js"
 
 let VeronicaPoints = await getCurrentPoints("Veronica");
 let DagPoints = await getCurrentPoints("Dag");
@@ -27,7 +27,7 @@ function drawChart() {
       title: 'Leaderboard',
       subtitle: 'Hvem har flest poeng',
     },
-    bars: 'horizontal' // Required for Material Bar Charts.
+    bars: 'horizontal'
   };
 
   var options = {
@@ -37,7 +37,7 @@ function drawChart() {
     bar: { groupWidth: '50%' },
   };
 
-  var chart = new google.charts.Bar(document.getElementById('chart_div'));
+  var chart = new google.charts.Bar(document.getElementById("chart_div"));
 
   chart.draw(data, google.charts.Bar.convertOptions(options));
 }

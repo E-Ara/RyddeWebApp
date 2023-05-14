@@ -1,17 +1,4 @@
-if (firebase.apps.length === 0) {
-  firebase.initializeApp({
-    apiKey: "AIzaSyD0f-mdn-czZ15vU6Z6v9qE63YoQac84NY",
-    authDomain: "fir-5ffef.firebaseapp.com",
-    databaseURL: "https://fir-5ffef-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "fir-5ffef",
-    storageBucket: "fir-5ffef.appspot.com",
-    messagingSenderId: "360409700344",
-    appId: "1:360409700344:web:14f20d680e07294b63280d",
-    measurementId: "G-HGQFSDMJSJ"
-  });
-}
-
-const db = firebase.firestore();
+import { db } from "./dbConnect.js";
 
 function getCookieValue(cookieName) {
   // Split the document.cookie string into an array of individual cookie strings
@@ -34,17 +21,18 @@ function getCookieValue(cookieName) {
 
 const cookieValue = getCookieValue("UserLoggedIn");
 
-//Sjekker hvilken oppgave bruker trykker på
+let PointsForTask;
 let taskID;
 
 const tasks = document.getElementsByClassName("Task");
 
 let Popup = document.getElementById("GjeremaalPopup")
 
+//Sjekker hvilken oppgave bruker trykker på
 const taskPressed = e => {
   taskID = e.target.id
   console.log(e.target.id);  //Finner id til oppgaven
-  getCurrentPoints(cookieValue);
+  getCurrentPoints(cookieValue, "SamletPoeng");
   getTaskPoints();
   VisPopup();
 }
@@ -53,14 +41,17 @@ for (let Task of tasks) {
   Task.addEventListener("click", taskPressed);
 }
 
-async function VisPopup() {
+function VisPopup() {
   document.getElementById("GjeremaalFerdig").innerHTML = "Gjøremål: " + taskID;
   Popup.classList.remove("GjeremaalPopupHidden");
   Popup.classList.add("GjeremaalPopupShow");
 }
 
 //Gjør lukk-knappen på popup'en funksjonell
-document.getElementById("LukkGjeremaal").addEventListener("click", LukkGjeremaalPopup)
+if (document.getElementById("LukkGjeremaal")) {
+  document.getElementById("LukkGjeremaal").addEventListener("click", LukkGjeremaalPopup);
+}
+
 
 function LukkGjeremaalPopup() {
   Popup.classList.remove("GjeremaalPopupShow");
@@ -85,11 +76,8 @@ async function getTaskPoints() {
   }
 }
 
-let PointsForTask;
-let UserPoints;
-
 //Finner hvor mange poeng innlogget bruker har
-async function getCurrentPoints(NameOfPerson) {
+export async function getCurrentPoints(NameOfPerson, elementID) {
   const userRef = db.collection('users').doc(NameOfPerson);
   const doc = await userRef.get();
   if (!doc.exists) {
@@ -98,10 +86,13 @@ async function getCurrentPoints(NameOfPerson) {
   } else {
     const UserPoints = doc.data().totalPoints;
     console.log('GetUserPoints', UserPoints);
-    document.getElementById("SamletPoeng").innerHTML = "Din score: " + UserPoints;
+    if (elementID) {
+      document.getElementById(elementID).innerHTML = "Din score: " + UserPoints;
+    }
     return UserPoints;
   }
 }
+
 
 function AddPoints() {
   const docRef = db.collection('users').doc(cookieValue);
