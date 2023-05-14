@@ -22,8 +22,6 @@ buttonUnlock.addEventListener("click", () => {
   });
 });
 
-let ArrayOfTasksDone = [];
-
 //Finner ut hvor mange oppgaver brukeren har gjort
 console.log("Querying Firestore for tasks done by user ID: " + user);
 firebase.firestore().collection("done")
@@ -35,12 +33,20 @@ firebase.firestore().collection("done")
       console.log("No tasks done by user with ID " + user);
       console.log("Length of array: 0");
     } else {
+      let ArrayOfTasksDone = [];
       querySnapshot.forEach((doc) => {
         console.log(doc.id, ' => ', doc.data());
         ArrayOfTasksDone.push(doc.id);
       });
       console.log("Length of array: " + ArrayOfTasksDone.length);
-      
+      if (ArrayOfTasksDone.length >= 10) {
+        console.log("10 tasks done");
+        document.getElementById("10Gjoremaal").classList.remove("badge-locked");
+      }
+      if (ArrayOfTasksDone.length >= 25) {
+        console.log("25 tasks done");
+        document.getElementById("25Gjoremaal").classList.remove("badge-locked");
+      }
     }
   })
   .catch((error) => {
