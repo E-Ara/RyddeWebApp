@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+img {
+    height: 10rem;
+}
+
+.personInformation {
+    display: flex;
+    margin: 4rem;
+}
+
+.badgeContainer {
+    display: flex;
+    width: 70vh;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.badgeIMG {
+    height: 5rem;
+}
+
+
+.badge-locked {
+    filter: grayscale(100%);
+}

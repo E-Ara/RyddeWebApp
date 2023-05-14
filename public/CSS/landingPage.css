@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    display: inline;
+    text-align: center;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 5rem;
+    padding-top: 2rem;
+}
+
+.infoText {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.infoTextDiv {
+    font-family: 'Inter';
+    font-weight: 400;
+    text-align: center;
+    font-size: 3rem;
+}
+
+#antallGjeremaal, #antallPoeng {
+    color: #407bff; 
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: "Anton", sans-serif;
+}
+
+.button {
+    width: 15rem;
+    height: 3.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: #407bff;
+    border-radius: 1rem;
+    z-index: 1;
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.ButtonDiv {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <!-- Linker Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue">
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.18.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.18.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.18.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.18.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.18.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.18.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.18.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.18.0/firebase-performance-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script type="module" src="/__/firebase/9.18.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <link rel="stylesheet" href="./CSS/loading.css">
+    <link rel="stylesheet" href="./CSS/IndexStyle.css">
+  </head>
+
+  <body>
+
+    <div class="loader"></div>
+    
+  <div class="content">
+    <h1>Velkommen</h1>
+
+    <div class="login-container">
+      <div>
+        <a id="Veronica" onclick="WhoLogIn(this.id)">
+          <img class="img" src="./Images/JavaScript-logo.png">
+          <h3>Veronica</h3></a>
+      </div>
+      <div>
+        <a id="Dag" onclick="WhoLogIn(this.id)" href="./landingPage.html">
+        <img class="img" src="./Images/JavaScript-logo.png">
+        <h3>Dag</h3></a>
+      </div>
+      <div>
+        <a id="Kaia" onclick="WhoLogIn(this.id)" href="./landingPage.html">
+          <img class="img" src="./Images/JavaScript-logo.png">
+          <h3>Kaia</h3></a>
+    </div>
+    <div>
+      <a id="Teo" onclick="WhoLogIn(this.id)" href="./landingPage.html">
+        <img class="img" src="./Images/JavaScript-logo.png">
+        <h3>Teo</h3></a>
+  </div>
+    </div>
+  </div>
+    
+  <script type="module" src="main.js"></script>
+  <script src="loader.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+h1 {
+    font-family: "Babas Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 128px;
+    text-align: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.img {
+    height: 12rem;
+    border-radius: 6rem;
+    transition: all 0.5s ease;
+}
+
+img:hover {
+    box-shadow: 1rem 0.5rem #8465FF;
+}
+
+.content {
+    margin: 0;
+    transform: translateY(25%);
+}
