@@ -8,8 +8,8 @@ img {
 }
 
 .personInformation {
-    display: flex;
-    margin: 4rem;
+    margin: 2rem 4rem;
+    text-align: center;
 }
 
 .badgeContainer {
@@ -18,7 +18,6 @@ img {
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
-    margin-top: 2rem;
 }
 
 .badgeIMG {
@@ -28,4 +27,13 @@ img {
 
 .badge-locked {
     filter: grayscale(100%);
+}
+
+.badgePoints-wrapper {
+    display: inline-block;
+    text-align: center;
+}
+
+.big-wrapper {
+    text-align: center;
 }

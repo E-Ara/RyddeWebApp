@@ -1,9 +1,12 @@
 import { cookieValue } from "./main.js";
 import { db } from "./dbConnect.js";
 
-document.getElementById("signOut").addEventListener("click", () => {
+if (document.getElementById("signOut")) {
+  document.getElementById("signOut").addEventListener("click", () => {
     document.cookie = "UserLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 })
+}
+
 
 window.onload = function() {
     document.getElementById("navnDemo").innerHTML = cookieValue;
@@ -25,7 +28,6 @@ window.onload = function() {
         document.getElementById("antallGjeremaal").innerHTML = 0;
       } else {
         querySnapshot.forEach((doc) => {
-          console.log(doc.id, ' => ', doc.data());
           ArrayOfTasksDone.push(doc.id);
         });
         console.log("Length of array: " + ArrayOfTasksDone.length);

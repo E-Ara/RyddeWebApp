@@ -1,28 +1,28 @@
 import { getCurrentPoints } from "./landingPage.js";
 
-document.getElementById("signOut").addEventListener("click", () => {
-  document.cookie = "UserLoggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-})
-
 //Finner ut hvilken bruker profil det er
 const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
 const user = urlParams.get("user")
 
-document.getElementById("name").innerHTML = user;
 const UserPoints = getCurrentPoints(user);
 
-if (getCurrentPoints(user)) {
-  console.log(UserPoints)
-  if (UserPoints >= 400) {
-    console.log("Hit goal", UserPoints)
-    document.getElementById("GjoremaalEkspert").classList.remove("badge-locked");
-  }
-  else {
-    console.log("could not get user poinst")
+async function waitForPoints() {
+  const points = await getCurrentPoints(user);
+  if (points) {
+    console.log("getting user points:", points);
+    if (points >= 400) {
+      console.log("Hit goal", points);
+      document.getElementById("GjoremaalEkspert").classList.remove("badge-locked");
+    } else {
+      console.log("could not get user points");
+    }
   }
 }
+
+waitForPoints();
+
 
 //Finner ut hvor mange oppgaver brukeren har gjort
 console.log("Querying Firestore for tasks done by user ID: " + user);
@@ -37,7 +37,6 @@ firebase.firestore().collection("done")
     } else {
       let ArrayOfTasksDone = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, ' => ', doc.data());
         ArrayOfTasksDone.push(doc.id);
       });
       console.log("Length of array: " + ArrayOfTasksDone.length);
@@ -70,7 +69,6 @@ firebase.firestore().collection("done")
     } else {
       let ArrayOfDinnerDone = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, ' => ', doc.data());
         ArrayOfDinnerDone.push(doc.id);
       });
       console.log("Length of Dinner array: " + ArrayOfDinnerDone.length);
