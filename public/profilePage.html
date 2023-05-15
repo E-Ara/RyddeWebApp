@@ -39,11 +39,11 @@
 
     <header>
         <ul class="Nav-Meny">
-            <li><a href="./index.html">Logg ut</a></li>
-            <li><a href="./profilePage.html">Veronica</a></li>
-            <li><a href="./profilePage.html">Dag</a></li>
-            <li><a href="./profilePage.html">Kaia</a></li>
-            <li><a href="./profilePage.html">Teo</a></li>
+            <li><a id="signOut" href="./index.html">Logg ut</a></li>
+            <li><a href="./profilePage.html?user=Veronica">Veronica</a></li>
+            <li><a href="./profilePage.html?user=Dag">Dag</a></li>
+            <li><a href="./profilePage.html?user=Kaia">Kaia</a></li>
+            <li><a href="./profilePage.html?user=Teo">Teo</a></li>
         </ul>
     </header>
 
@@ -65,21 +65,22 @@
                     <h3>Sjefen i huset</h3>
                 </div>
                 <div class="badge">
-                    <img class="badgeIMG badge-locked" src="./Images/Kokk.png">
+                    <img id="kongensKokk" class="badgeIMG badge-locked" src="./Images/Kokk.png">
                     <h3>Kongens kokk</h3>
                 </div>
                 <div class="badge">
-                    <img class="badgeIMG badge-locked" src="./Images/LittAvHvert.png">
-                    <h3>Litt av hvert</h3>
+                    <img id="GjoremaalEkspert" class="badgeIMG badge-locked" src="./Images/LittAvHvert.png">
+                    <h3>Gjøremåls ekspert</h3>
                 </div>
             </div>
+            <div style="margin-top: 4rem; text-align: center;">
+                <h1 style="color: #407bff; font-family: 'Courier New', Courier, monospace; font-size: 5rem;" id="antallPoeng">XX</h1>
+                <p style="font-size: xx-large; font-weight: 600;">Poeng</p>
+            </div>
         </div>
-
-        <button id="ChangeLock">Change to locked</button>
-        <button id="Unlock">Unlock</button>
     </main>
 
-<script src="profilePage.js"></script>
+<script type="module" src="profilePage.js"></script>
 <script src="loader.js"></script>
 </body>
 </html>

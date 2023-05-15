@@ -36,17 +36,17 @@ window.onload = function() {
       console.log("Error getting tasks done by user: ", error);
     });
   
-  //Finner hvor mange poeng innlogget bruker har
-  async function getCurrentPoints(NameOfPerson) {
-    const userRef = db.collection('users').doc(NameOfPerson);
-    const doc = await userRef.get();
-    if (!doc.exists) {
-      console.log('No such document!');
-      return null;
-    } else {
-      const UserPoints = doc.data().totalPoints;
-      console.log('GetUserPoints', UserPoints);
-      document.getElementById("antallPoeng").innerHTML = UserPoints;
-      return UserPoints;
-    }
+//Finner hvor mange poeng innlogget bruker har
+export async function getCurrentPoints(NameOfPerson) {
+  const userRef = db.collection('users').doc(NameOfPerson);
+  const doc = await userRef.get();
+  if (!doc.exists) {
+    console.log('No such document!');
+    return null;
+  } else {
+    const UserPoints = doc.data().totalPoints;
+    console.log('GetUserPoints', UserPoints);
+    document.getElementById("antallPoeng").innerHTML = UserPoints;
+    return UserPoints;
   }
+}
