@@ -14,10 +14,12 @@ img {
 
 .badgeContainer {
     display: flex;
-    width: 70vh;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
+    padding: 1.5rem;
+    border-style: dashed;
+    border-radius: 1rem;
 }
 
 .badgeIMG {
@@ -32,6 +34,7 @@ img {
 .badgePoints-wrapper {
     display: inline-block;
     text-align: center;
+    width: 100vh;
 }
 
 .big-wrapper {

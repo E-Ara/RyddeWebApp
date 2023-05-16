@@ -2,6 +2,7 @@ const users = document.getElementsByClassName("user");
 
 let userID;
 
+//Checks which user logged in
 const userPressed = e => {
   userID = e.target.id;
   console.log(userID);  // Log the id of the clicked element to the console
@@ -13,7 +14,7 @@ for (let user of users) {
   user.addEventListener("click", userPressed);
 }
 
-
+//Creates a cookie that stores the current user
 function WhoLogIn(clicked_id) {
   const d = new Date();
   d.setTime(d.getTime() + (31*24*60*60*1000));
@@ -40,4 +41,5 @@ function getCookieValue(cookieName) {
   return null;
 }
 
+//Exports the value of the cookie so it can be used in other modules
 export let cookieValue = getCookieValue("UserLoggedIn");

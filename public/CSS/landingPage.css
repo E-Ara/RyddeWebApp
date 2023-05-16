@@ -20,7 +20,7 @@ body {
 .infoText {
     display: flex;
     justify-content: space-around;
-    padding: 2rem;
+    padding: 3rem 2rem;
 }
 
 .infoTextDiv {
@@ -58,4 +58,9 @@ button:hover {
     display: flex;
     justify-content: center;
     padding: 3rem;
+}
+
+#chart_div {
+    display: block;
+    margin: 0 auto;
 }
